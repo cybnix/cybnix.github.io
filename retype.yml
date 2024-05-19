@@ -1,0 +1,13 @@
+input: .
+output: .retype
+url: # Add your website address here
+branding:
+  title: Project Name
+  label: Docs
+links:
+  - text: LinkedIn
+    link: https://www.linkedin.com/in/nikolay-ivanov-5818b5144
+    icon: people
+
+#footer:
+  #copyright: "&copy; Copyright {{ year }}. All rights reserved."
