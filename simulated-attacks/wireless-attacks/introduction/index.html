@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769529121858">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769539015097">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.769529121858" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.769539015097" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769529121858" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769539015097" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769529121858" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769539015097" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -242,22 +242,132 @@
 <img src="/static/airmon1.png" style="border-radius: 10px;"/>
 <p>First we can see that our adapter is &quot;wlan0&quot; after using &quot;iwconfig&quot; and it is in Mode: Managed.</p>
 <img src="/static/airmon2.png" style="border-radius: 10px;"/>
-<p>Now after using &quot;sudo airmon-ng start wlan0&quot; we can see how the adapter changed its name to &quot;wlan0mon&quot; and its mode to &quot;Montior&quot;.</p>
+<p>Now after using <strong>sudo airmon-ng start wlan0</strong> we can see how the adapter changed its name to &quot;wlan0mon&quot; and its mode to &quot;Montior&quot;.</p>
 <p>That&#x27;s it. Quite simple isn&#x27;t it? Now our adapter can capture the needed information.</p>
+<hr>
 <doc-anchor-target id="capturing-the-4-way-authentication-handshake">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#capturing-the-4-way-authentication-handshake">#</doc-anchor-trigger>
         <span>Capturing the 4-way authentication handshake</span>
     </h2>
 </doc-anchor-target>
+<blockquote>
+<p>If  you don&#x27;t know what 4-way handshake is, this is simply the series of messages that are being exchanged between your device and the network so a secure connection can be established. While it is designed for a secure authentication, we can still capture that and we can attempt to crack it which can lead to us gaining unauthorized access to the network. <span class="docs-emoji">&#x1F916;</span></p>
+</blockquote>
 <doc-anchor-target id="scan-for-the-target">
-    <h4>
+    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#scan-for-the-target">#</doc-anchor-trigger>
         <span>Scan for the target</span>
-    </h4>
+    </h3>
 </doc-anchor-target>
 <img src="/static/airodump-ng.png" style="border-radius: 10px;"/>
-<p>We should now use &quot;sudo airodump-ng wlan0mon&quot;. This would show us the nearby networks and some details related to them. As you can see on the above screenshot, we have identified our target and we know which channel it uses and we know the MAC address as well.</p>
+<p>We should now use <strong>sudo airodump-ng wlan0mon</strong>. This would show us the nearby networks and some details related to them. As you can see on the above screenshot, we have identified our target and we know which channel it uses + its MAC address as well.</p>
+<doc-anchor-target id="select-the-target-and-capture-the-handshake">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#select-the-target-and-capture-the-handshake">#</doc-anchor-trigger>
+        <span>Select the target and capture the handshake</span>
+    </h3>
+</doc-anchor-target>
+<p>Next, we need to capture the handshake from our target WiFi network. To do this, we&#x27;ll use the airodump-ng command. In this example, we&#x27;re targeting a network on channel 7 with a specific BSSID (32:DE:4B:47:85:8F). The captured data will be saved to the desktop and then we can continue further.</p>
+<blockquote>
+<p><strong>sudo airodump-ng -c 7 -w /home/user/Desktop/capture -d 32:DE:4B:47:85:8F wlan0mon</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li><em><strong>-c</strong></em> we select the channel of the network we would like to attack</li>
+<li><em><strong>-w</strong></em> the path of our capture file</li>
+<li><em><strong>-d</strong></em> MAC address of the access point</li>
+<li><em><strong>wlan0mon</strong></em> our adapter which is now in monitor mode</li>
+<li><em><strong>We got all the above information from our first step which was to scan the nearby networks.</strong></em></li>
+</ul>
+</blockquote>
+<img src="/static/airodump-ng-listen.png" style="border-radius: 10px;"/>
+<p>Now we will see the above window after executing the command. Once a device tries to connect to the AP, we will capture the handshake.</p>
+<doc-anchor-target id="but-what-if-there-are-no-devices-that-want-to-connect-to-the-network-at-the-current-moment">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#but-what-if-there-are-no-devices-that-want-to-connect-to-the-network-at-the-current-moment">#</doc-anchor-trigger>
+        <span>But what if there are no devices that want to connect to the network at the current moment?</span>
+    </h3>
+</doc-anchor-target>
+<p>We can easily force the ones that are already connected to try to reconnnect to the access point and then we can capture the handshake.<span class="docs-emoji">&#x1F609;</span></p>
+<p>We will send some messages to the clients, which are basically going to tell them that they are no longer associated with this access point. This will make them try to reconnect and it would let us capture the handshake.</p>
+<doc-anchor-target id="executing-a-deauthentitcation-attack">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#executing-a-deauthentitcation-attack">#</doc-anchor-trigger>
+        <span>Executing a deauthentitcation attack</span>
+    </h3>
+</doc-anchor-target>
+<p>First we will connect the &quot;victim&quot; to the test network which we are using for the attack.</p>
+<img src="/static/client.jpg" style="border-radius: 10px;"/>
+<p>Now that we have the needed details from the first scan we can proceed further with the following command :</p>
+<blockquote>
+<p><strong>sudo aireplay-ng --deauth 0 -a 32:DE:4B:47:85:8F wlan0mon</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li><em><strong>aireplay-ng</strong></em> this tool is a part of the aircrack-ng suite as well as the other which we have used so far</li>
+<li><em><strong>--deauth 0</strong></em> this specifies that we want to do a deauthentication attack, 0 simply means that packets will be sent until manually stopped</li>
+<li><em><strong>-a</strong></em> MAC address of the access point</li>
+<li><em><strong>wlan0mon</strong></em> our adapter which is now in monitor mode</li>
+<li><em><strong>With an additional flag &quot;-c&quot; we can specify a client that we want to deauth from the network. You will usually get a list of the clients on the previous steps but in our case we will just do it without it as our test network has only 1 device connected to it. As you can see in the disclaimer on the below screenshot, it is said that this attack is more effective if we specifically target a client that is connected to the network.</strong></em></li>
+</ul>
+</blockquote>
+<img src="/static/deauth1.png" style="border-radius: 10px;"/>
+<p>Now what happens after executing this attack is that our phone got disconnected from the network. When we stop the deauth attack, the phone will automatically connect back and in the window where we are waiting for the handshake, we will see a sign that it is collected.</p>
+<img src="/static/handshake.png" style="border-radius: 10px;"/>
+<br/><br/>
+Now we don't even need to be close to the network as the cracking process can be done offline as we got the capture file on our desktop.
+<img src="/static/capture.png" style="border-radius: 10px;"/>
+<hr>
+<doc-anchor-target id="cracking-the-handshake">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cracking-the-handshake">#</doc-anchor-trigger>
+        <span>Cracking the handshake</span>
+    </h2>
+</doc-anchor-target>
+<p>Now that we got the .cap file that contains the handshake, we can try to crack it.</p>
+<img src="/static/rockyou.png" style="border-radius: 10px;"/>
+<br/><br/>
+<blockquote>
+<p><strong>sudo aircrack-ng capture-01.cap -w /usr/share/wordlists/rockyou.txt</strong></p>
+<ul>
+<li>We just have to use aircrack-ng, the .cap file and a wordlist. In this case you can see that I am using &quot;rockyou.txt&quot; which is a wordlist included in Kali Linux. You can use whatever you like as a lot of wordlists are widely available on the internet. Or you can maybe even generate one yourself. Thinking about it, I might create a simple guide for that in the future <span class="docs-emoji">&#x1F60E;</span>.</li>
+</ul>
+</blockquote>
+<img src="/static/cracked.png" style="border-radius: 10px;"/>
+<p>As you can see, after we have executed the command it took only 6 seconds to crack this password. Aircrack uses each password in our wordlist as a key to attempt to decrypt the encrypted handshake information.</p>
+<img src="/static/pass.png" style="border-radius: 10px;"/>
+<br/><br/> 
+<img src="/static/wifi.png" style="border-radius: 10px;"/>
+<p>And as you can observe above, we were able to connect to this network with the provided password.</p>
+<hr>
+<doc-anchor-target id="opening-the-cap-file-in-wireshark-to-see-each-step-of-the-handshake">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opening-the-cap-file-in-wireshark-to-see-each-step-of-the-handshake">#</doc-anchor-trigger>
+        <span>Opening the .cap file in Wireshark to see each step of the handshake</span>
+    </h2>
+</doc-anchor-target>
+<p>If you find it interesting, you can open this .cap file with Wireshark. That way you can observe the authentication process between the client and the AP. You can see the individual hanshake messages which have been exchanged during the authentication process.</p>
+<p>It&#x27;s very straightforward, all you have to do is open Wireshark, open the file :
+<img src="/static/wireshark1.png" style="border-radius: 10px;"/></p>
+<p>Next filter for &quot;eapol&quot; (Extensible Authentication Protocol over LAN) packets. When a device tries to connect to a WiFi network, it needs to prove its identity to the access point (the router). EAPOL packets are like the &#x27;handshake&#x27; between the device and the access point during this authentication process.</p>
+<img src="/static/wireshark2.png" style="border-radius: 10px;"/>
+<hr>
+<doc-anchor-target id="protecting-yourself">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#protecting-yourself">#</doc-anchor-trigger>
+        <span>Protecting yourself</span>
+    </h2>
+</doc-anchor-target>
+<p>A few tips that I follow to protect myself :</p>
+<dl>
+<dt><strong>Strong password</strong></dt>
+<dd>I would say that this is a must. Make sure the password combines uppercase with lowercase letters, numbers and even special characters. It would be significantly harder to crack one as it is going to be more resistant to dictionary-based attacks. Plus I wouldn&#x27;t use any common words <span class="docs-emoji">&#x1F601;</span></dd>
+<dt><strong>Enable WPA3</strong></dt>
+<dd>WPA3 provides stronger encryption and authentication protocols compared to previous standards like WPA and WPA2 (had to downgrade mine to WPA2 for the simulation <span class="docs-emoji">&#x1F604;</span>). It introduces the Simultaneous Authentication of Equals (SAE) protocol, also known as Dragonfly, which protects against various types of attacks, including brute-force and dictionary attacks.</dd>
+<dt><strong>MAC Address Filtering</strong></dt>
+<dd>Restrict the access to your WiFi network by only allowing devices with specific MAC addresses to connect to it. Yes a MAC address can definitely be spoofed but in my opinion it would add an additional barrier. I would like to make it as annoying as possilble if anyone is attempting to breach into my home network <span class="docs-emoji">&#x1F609;</span>.</dd>
+</dl>
 
                                 
                                 <!-- Required only on API pages -->
