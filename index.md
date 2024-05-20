@@ -1,8 +1,9 @@
 # Welcome to my Blog!
 
 <img src="/static/welcome.jpg" style="border-radius: 10px;"/>
-
-Hello! I'm a tech enthusiast with a master's degree in information security. I have some diverse experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions, I'm now venturing into the world of cybersecurity. So far I have mostly pursued security as a hobby but I possess a very strong interest in transitioning into the field professionally. 👀
+<br/><br/> 
+Hello👋! I'm a tech enthusiast with a master's degree in information security. I have some diverse work experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions, I'm now venturing into the world of cybersecurity. So far I have mostly pursued security as a hobby but I possess a very strong interest in transitioning into the field professionally. 👀
+<br/><br/> 
 
 ### Why this Blog?
 The primary goal of this blog is to document my journey into cybersecurity and share valuable insights with others who are interested in the field. Whether you're new to this like me or someone with more experience, I hope you find the content here informative and helpful. 😄
