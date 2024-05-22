@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769539234299">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769697088913">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -14,27 +14,27 @@
     <meta name="description" content="In this post, I will explore how to conduct a simulated WiFi attack on a test network to understand how credentials can be stolen and used to gain...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://cybnix.github.io/simulated-attacks/wireless-attacks/introduction/">
+    <link rel="canonical" href="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/crackingwpa/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cybnix.github.io/simulated-attacks/wireless-attacks/introduction/">
+    <meta property="og:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/crackingwpa/">
     <meta property="og:title" content="Cracking WPA/WPA2">
     <meta property="og:description" content="In this post, I will explore how to conduct a simulated WiFi attack on a test network to understand how credentials can be stolen and used to gain...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cybnix.github.io/simulated-attacks/wireless-attacks/introduction/">
+    <meta property="twitter:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/crackingwpa/">
     <meta property="twitter:title" content="Cracking WPA/WPA2">
     <meta property="twitter:description" content="In this post, I will explore how to conduct a simulated WiFi attack on a test network to understand how credentials can be stolen and used to gain...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.769539234299" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.769697088913" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769539234299" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769697088913" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769539234299" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769697088913" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -50,7 +50,7 @@
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
                         <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-xl">
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Cybnix <span class="docs-emoji">&#x26A1;</span></span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Cybnix <span class="docs-emoji">&#x26A1;</span><span class="docs-emoji">&#x1F468;</span>‍<span class="docs-emoji">&#x1F4BB;</span></span>
                         </a>
                     </div>
         
@@ -364,7 +364,7 @@ Now we don't even need to be close to the network as the cracking process can be
 <dt><strong>Strong password</strong></dt>
 <dd>I would say that this is a must. Make sure the password combines uppercase with lowercase letters, numbers and even special characters. It would be significantly harder to crack one as it is going to be more resistant to dictionary-based attacks. Plus I wouldn&#x27;t use any common words <span class="docs-emoji">&#x1F601;</span></dd>
 <dt><strong>Enable WPA3</strong></dt>
-<dd>WPA3 provides stronger encryption and authentication protocols compared to previous standards like WPA and WPA2 (had to downgrade mine to WPA2 for the simulation <span class="docs-emoji">&#x1F604;</span>). It introduces the Simultaneous Authentication of Equals (SAE) protocol, also known as Dragonfly, which protects against various types of attacks, including brute-force and dictionary attacks.</dd>
+<dd>WPA3 provides stronger encryption and authentication protocols compared to previous standards like WPA and WPA2 (had to downgrade mine to WPA2 for the simulation <span class="docs-emoji">&#x1F604;</span>). It introduces the Simultaneous Authentication of Equals (SAE) protocol, which protects against various types of attacks, including brute-force and dictionary attacks.</dd>
 <dt><strong>MAC Address Filtering</strong></dt>
 <dd>Restrict the access to your WiFi network by only allowing devices with specific MAC addresses to connect to it. Yes a MAC address can definitely be spoofed but in my opinion it would add an additional barrier. I would like to make it as annoying as possilble if anyone is attempting to breach into my home network <span class="docs-emoji">&#x1F609;</span>.</dd>
 </dl>
@@ -377,7 +377,7 @@ Now we don't even need to be close to the network as the cracking process can be
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/test2/test/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/bee-box/test/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
