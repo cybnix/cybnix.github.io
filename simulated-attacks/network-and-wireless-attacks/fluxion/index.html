@@ -9,24 +9,21 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Installing bWAPP (with bee-box)</title>
-    <meta name="title" content="Installing bWAPP (with bee-box)">
-    <meta name="description" content="So, bWAPP (Buggy Web Application) is an intentionally vulnerable web application that developers, security professionals, students and basically...">
+    <title>Fluxion - MITM WPA/WPA2 attack (WIP)</title>
+    <meta name="title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://cybnix.github.io/guides/eh-tools-and-utilities/bwapp/">
+    <link rel="canonical" href="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/bwapp/">
-    <meta property="og:title" content="Installing bWAPP (with bee-box)">
-    <meta property="og:description" content="So, bWAPP (Buggy Web Application) is an intentionally vulnerable web application that developers, security professionals, students and basically...">
+    <meta property="og:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
+    <meta property="og:title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/bwapp/">
-    <meta property="twitter:title" content="Installing bWAPP (with bee-box)">
-    <meta property="twitter:description" content="So, bWAPP (Buggy Web Application) is an intentionally vulnerable web application that developers, security professionals, students and basically...">
+    <meta property="twitter:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
+    <meta property="twitter:title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -177,43 +174,13 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="installing-bwapp-with-bee-box" class="break-words">
+<doc-anchor-target id="fluxion---mitm-wpawpa2-attack-wip" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#installing-bwapp-with-bee-box">#</doc-anchor-trigger>
-        <span>Installing bWAPP (with bee-box)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fluxion---mitm-wpawpa2-attack-wip">#</doc-anchor-trigger>
+        <span>Fluxion - MITM WPA/WPA2 attack (WIP)</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="what-is-bwapp">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#what-is-bwapp">#</doc-anchor-trigger>
-        <span>What is bWAPP</span>
-    </h2>
-</doc-anchor-target>
-<p>So, bWAPP (Buggy Web Application) is an intentionally vulnerable web application that developers, security professionals, students and basically everyone can use to practice and enhance their web security skills. It has a big range of security vulnerabilities and challenges, allowing users to explore and understand common web application security issues in a safe and controlled environment. I have been using it for some time now and I really love how much stuff you can practice with it.</p>
-<p>Bee-box is just a custom linux VM which comes with bWAPP installed on it. It is extremely easy to set up one for yourself so you can play around with it. If you wish to get it, click here : <a href="https://sourceforge.net/projects/bwapp/files/bee-box/" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-yellow-500 hover:bg-yellow-600 text-black px-3 h-8 text-sm rounded-full">
-    <span>Bee-box</span>
-</a></p>
-<ul class="list-icon">
-<li><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> Setting it up
-<ul>
-<li><p><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M17.28 9.28a.75.75 0 0 0-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l6.5-6.5Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> Download <strong>bee-box</strong> from the button above (.7z archive).</p>
-</li>
-<li><p><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M17.28 9.28a.75.75 0 0 0-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l6.5-6.5Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> Extract it.</p>
-</li>
-<li><p><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M17.28 9.28a.75.75 0 0 0-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l6.5-6.5Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> Load the .vmx file with your VMware Workstation (did you know that VMware Workstation Pro is now free for personal use?) <a href="https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-gray-900 hover:bg-gray-700 dark:bg-white dark:hover:bg-dark-300 text-white dark:text-black px-3 h-8 text-sm rounded-full">
-    <span>Click me</span>
-</a></p>
-</li>
-<li><p><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M17.28 9.28a.75.75 0 0 0-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l6.5-6.5Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> Start it.
-<img src="/static/bee_box.png" style="border-radius: 10px;"/></p>
-</li>
-<li><p><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M17.28 9.28a.75.75 0 0 0-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l6.5-6.5Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> That&#x27;s all! Now you have a vulnerable VM which you can freely break <span class="docs-emoji">&#x1F601;</span>.</p>
-  <img src="/static/bee_box2.png" style="border-radius: 10px;"/>
-</li>
-</ul>
-</li>
-</ul>
-<p>In my future posts, I plan on executing a few simple attacks on a bee-box VM. Stay tuned if you&#x27;re interested! <span class="docs-emoji">&#x1F440;</span></p>
+<img src="/static/workpeon.jpg" style="border-radius: 10px; width: 50%;"  />
 
                                 
                                 <!-- Required only on API pages -->
@@ -223,23 +190,16 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../guides/eh-tools-and-utilities/fluxion_install/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/network-and-wireless-attacks/crackingwpa/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Fluxion - Install (WIP)</span>
+                                                <span class="block mt-1">Cracking WPA/WPA​2</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/bee-box/test/">
-                                            <span>
-                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Coming soon (WIP)</span>
-                                            </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        </a>
                                     </div>
                                 </nav>
                             </footer>
@@ -280,6 +240,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Installing bWAPP (with bee-box)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Fluxion - MITM WPA/WPA2 attack (WIP)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
