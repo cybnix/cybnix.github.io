@@ -1,4 +1,4 @@
-# test
+# Coming soon (WIP)
 
 
-This is my blog made with retype
+<img src="/static/workpeon.jpg" style="border-radius: 10px; width: 50%;"  />

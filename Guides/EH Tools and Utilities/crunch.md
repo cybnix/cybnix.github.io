@@ -38,16 +38,18 @@ So here comes the concern why you shouldn't use anything that makes sense for yo
 
 Let's say your name is John Doe and you were born on 10th of January 1990. If someone knows this information about you, they can use it to generate a wordlist based on that.
 
-We can try it out like that for example (will stick to using a smaller string size as otherwise the wordlist can become quite big 😆):
+We can try it out like that for example :
 
-**crunch 6 10 -o johndoe.txt -p John Doe 10 January 1990**
+**crunch  -o john_doe.txt -p John Doe 10 January 1990**
 
-*-p flag means that we will define a pattern for generating a wordlist.*
+> - *-p flag means that we will define a pattern for generating a wordlist.*
+> - *-o flag is used to define the name of the output file*
+> - **When using -p I haven't specified the min and max length because it won't affect the output since -p generates all possible permutations of the given words. Basically crunch will generate every possible way to arrange the provided words by us.**
 
-<br></br>
 <img src="/static/crunch4.png" style="border-radius: 10px"/>
 120 strings generated with this information
 
+<br></br>
 And that's not all, that's only us touching the surface of crunch with this small example. This tool is way more powerful and it has many more options. The point here is that you should avoid using stuff that make sense for your password as it could potentially lead to you being a victim of a targeted attack.
 
 !!!
