@@ -139,7 +139,7 @@ A few tips that I follow to protect myself :
 :   I would say that this is a must. Make sure the password combines uppercase with lowercase letters, numbers and even special characters. It would be significantly harder to crack one as it is going to be more resistant to dictionary-based attacks. Plus I wouldn't use any common words 😁
 
 **Enable WPA3**
-:   WPA3 provides stronger encryption and authentication protocols compared to previous standards like WPA and WPA2 (had to downgrade mine to WPA2 for the simulation 😄). It introduces the Simultaneous Authentication of Equals (SAE) protocol, also known as Dragonfly, which protects against various types of attacks, including brute-force and dictionary attacks.
+:   WPA3 provides stronger encryption and authentication protocols compared to previous standards like WPA and WPA2 (had to downgrade mine to WPA2 for the simulation 😄). It introduces the Simultaneous Authentication of Equals (SAE) protocol, which protects against various types of attacks, including brute-force and dictionary attacks.
 
 **MAC Address Filtering**
 :   Restrict the access to your WiFi network by only allowing devices with specific MAC addresses to connect to it. Yes a MAC address can definitely be spoofed but in my opinion it would add an additional barrier. I would like to make it as annoying as possilble if anyone is attempting to breach into my home network 😉.

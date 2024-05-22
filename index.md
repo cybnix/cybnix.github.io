@@ -12,10 +12,10 @@ The primary goal of this blog is to document my journey into cybersecurity and s
 
 ### What to Expect
 
-Here’s what you can look forward to:
+Although this blog is still tiny, here’s what you can look forward to:
 
-!!! Ethical Hacking Tutorials
-Simple hacking techniques, simulated attacks, and practical examples documented for my own learning and for anyone else who might find them useful.
+!!! Simulated attacks
+Simple hacking techniques and practical examples documented for my own learning and for anyone else who might find them useful.
 !!!
 
 !!! IT Tutorials
@@ -26,9 +26,9 @@ Simple tips and guides on system administration, networking, and other IT-relate
 Useful tools and how to install them, websites, and courses to further your knowledge in cybersecurity and IT.
 !!!
 
-=== Disclaimer
+!!!warning 
 All activities and techniques I present in this blog are performed in a strictly controlled and legal environment (at home). They are intended for educational purposes only and should not be used with any malicious intent. I strongly discourage any unlawful activities and emphasize the importance of ethical behavior.
-===
+!!!
 
 ### Inspiration
 I got insipred to create this blog because of Lachezar Uzunov. He was my lecturer during a few Ethical Hacking courses and all I can say is that he is a professional and he is very good at what he is doing, so you can go and check out his work here : [!button size="xs" corners="square" variant="danger" text="YouTube"](https://www.youtube.com/@Lsecqt)
