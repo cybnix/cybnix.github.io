@@ -1,5 +1,9 @@
 # Installing bWAPP (with bee-box)
 
+<img src="/static/bwapp.jpg" style="border-radius: 20px; width: 80%; height: 400px; display: block; margin: auto;"/>
+
+<br><br>
+
 ## What is bWAPP
 
 So, bWAPP (Buggy Web Application) is an intentionally vulnerable web application that developers, security professionals, students and basically everyone can use to practice and enhance their web security skills. It has a big range of security vulnerabilities and challenges, allowing users to explore and understand common web application security issues in a safe and controlled environment. I have been using it for some time now and I really love how much stuff you can practice with it.

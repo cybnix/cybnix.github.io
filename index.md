@@ -15,15 +15,15 @@ The primary goal of this blog is to document my journey into cybersecurity and s
 Although this blog is still tiny, here’s what you can look forward to:
 
 !!! Simulated attacks
-Simple hacking techniques and practical examples documented for my own learning and for anyone else who might find them useful.
+Simple hacking techniques and practical examples done in my environment, documented for my own learning and for anyone else who might find them useful.
 !!!
 
-!!! IT Tutorials
-Simple tips and guides on system administration, networking, and other IT-related topics. 
+!!! Resources and Guides
+Useful tools and guides on how to install them.
 !!!
 
-!!! Resources and Recommendations
-Useful tools and how to install them, websites, and courses to further your knowledge in cybersecurity and IT.
+!!! HTB Writeups
+Will take up challenges in HTB (Hack The Box) and will write detailed guides on them and how they can be solved step by step.
 !!!
 
 !!!warning 
