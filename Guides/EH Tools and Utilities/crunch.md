@@ -1,4 +1,4 @@
-# Crunch - generating your own wordlist
+# Crunch - wordlist generator
 
 
 ## What is Crunch?

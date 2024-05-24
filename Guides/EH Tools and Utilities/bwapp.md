@@ -1,4 +1,4 @@
-# Installing bWAPP (with bee-box)
+# Configuring bWAPP (with bee-box)
 
 <img src="/static/bwapp.jpg" style="border-radius: 20px; width: 80%; height: 400px; display: block; margin: auto;"/>
 
