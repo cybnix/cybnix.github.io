@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769794068142">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769888395621">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Fluxion - Install (WIP)</title>
-    <meta name="title" content="Fluxion - Install (WIP)">
+    <title>Fluxion Setup</title>
+    <meta name="title" content="Fluxion Setup">
+    <meta name="description" content="It's a tool focused on obtaining a WiFi password via a phishing attack. If you've never seen it, you'll be surprised how easy it is to use.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://cybnix.github.io/guides/eh-tools-and-utilities/fluxion_install/">
@@ -18,20 +19,22 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/fluxion_install/">
-    <meta property="og:title" content="Fluxion - Install (WIP)">
+    <meta property="og:title" content="Fluxion Setup">
+    <meta property="og:description" content="It's a tool focused on obtaining a WiFi password via a phishing attack. If you've never seen it, you'll be surprised how easy it is to use.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/fluxion_install/">
-    <meta property="twitter:title" content="Fluxion - Install (WIP)">
+    <meta property="twitter:title" content="Fluxion Setup">
+    <meta property="twitter:description" content="It's a tool focused on obtaining a WiFi password via a phishing attack. If you've never seen it, you'll be surprised how easy it is to use.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.769794068142" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.769888395621" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769794068142" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769888395621" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769794068142" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769888395621" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -174,13 +177,114 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="fluxion---install-wip" class="break-words">
+<doc-anchor-target id="fluxion-setup" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#fluxion---install-wip">#</doc-anchor-trigger>
-        <span>Fluxion - Install (WIP)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fluxion-setup">#</doc-anchor-trigger>
+        <span>Fluxion Setup</span>
     </h1>
 </doc-anchor-target>
-<img src="/static/workpeon.jpg" style="border-radius: 10px; width: 50%;"  />
+<img src="/static/fluxion.jpg" style="border-radius: 10px; width: 70%;"/>
+<p><br><br></p>
+<doc-anchor-target id="so-what-is-fluxion">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#so-what-is-fluxion">#</doc-anchor-trigger>
+        <span>So what is Fluxion?</span>
+    </h2>
+</doc-anchor-target>
+<p>It&#x27;s a tool focused on obtaining a WiFi password via a phishing attack. If you&#x27;ve never seen it, you&#x27;ll be surprised how easy it is to use. I will present this in another post but I will show you how to configure it in the current one.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>It&#x27;s very important that your adapter supports monitoring mode. For more information on that you can check my other post <a href="/simulated-attacks/network-and-wireless-attacks/crackingwpa">Cracking WPA/WPA2</a></p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="how-to-get-it">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-get-it">#</doc-anchor-trigger>
+        <span>How to get it?</span>
+    </h2>
+</doc-anchor-target>
+<p>First you should go to your terminal and type :</p>
+<blockquote>
+<ul>
+<li>sudo git clone <a href="https://www.github.com/FluxionNetwork/fluxion.git">https://www.github.com/FluxionNetwork/fluxion.git</a></li>
+</ul>
+</blockquote>
+<img src="/static/fluxion/fluxion1.png" style="border-radius: 10px; width: 80%;"/>
+<p>Next step is to be in the directory where you have downloaded the tool.</p>
+<blockquote>
+<ul>
+<li>Try to run it with <strong>sudo ./fluxion.sh</strong></li>
+</ul>
+</blockquote>
+<img src="/static/fluxion/fluxion2.png" style="border-radius: 10px; width: 80%;"/>
+<p>You will see the above window. It is quite possible that there are missing dependencies. To fix that you should run :</p>
+<blockquote>
+<ul>
+<li><strong>sudo ./fluxion -i</strong></li>
+</ul>
+</blockquote>
+<p>After you fix the dependencies everything should be working fine.</p>
+<img src="/static/fluxion/fluxion3.png" style="border-radius: 10px; width: 80%;"/>
+<p><br><br></p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Tip</h5>
+<p>You don&#x27;t need to navigate to the folder to start it every time. You can edit your shell configuration and make an alias for that so you can type &quot;fluxion&quot; and run it from everywhere. I really like to create aliases because it simplifies my work. <span class="docs-emoji">&#x1F60E;</span></p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="how-to-add-an-alias">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-add-an-alias">#</doc-anchor-trigger>
+        <span>How to add an alias?</span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li>First you need to edit your shell config file. In my case I am using zsh so I need to edit it the following way:</li>
+</ol>
+<blockquote>
+<ul>
+<li>nano ~/.zshrc</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>At the bottom of the file I will add the following :</li>
+</ol>
+<blockquote>
+<ul>
+<li>&#x27;# fluxion alias
+<br><br>
+alias fluxion=&#x27;cd /opt/fluxion/ &amp;&amp; sudo ./fluxion.sh&#x27; &#x27;
+<br><br>
+You can adjust the path based on the location of fluxion in your case.</li>
+</ul>
+</blockquote>
+<img src="/static/fluxion/alias.png" style="border-radius: 10px; width: 80%;"/>
+<p><br><br>
+3. Save it. Now you can run &quot;fluxion&quot; from anywhere in your environment <span class="docs-emoji">&#x1F44D;</span></p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -194,16 +298,16 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Crunch - generating your own wordlist</span>
+                                                <span class="block mt-1">Crunch - wordlist generator</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../guides/eh-tools-and-utilities/bwapp/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../guides/other-tools/test/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Installing b​WAPP (with bee-​box)</span>
+                                                <span class="block mt-1">Coming soon (WIP)</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -247,6 +351,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Fluxion - Install (WIP)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Fluxion Setup", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
