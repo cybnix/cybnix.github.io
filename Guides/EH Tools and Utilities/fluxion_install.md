@@ -2,7 +2,8 @@
 
 <img src="/static/fluxion.jpg" style="border-radius: 10px; width: 70%;"/>
 
-<br><br>
+---
+
 ## So what is Fluxion?
 
 It's a tool focused on obtaining a WiFi password via a phishing attack. If you've never seen it, you'll be surprised how easy it is to use. I will present this in another post but I will show you how to configure it in the current one.
@@ -10,6 +11,8 @@ It's a tool focused on obtaining a WiFi password via a phishing attack. If you'v
 !!!info 
 It's very important that your adapter supports monitoring mode. For more information on that you can check my other post [Cracking WPA/WPA2](/Simulated-Attacks/Network-and-Wireless-Attacks/crackingwpa)
 !!!
+
+---
 
 ## How to get it?
 
@@ -35,6 +38,8 @@ After you fix the dependencies everything should be working fine.
 !!!info Tip
 You don't need to navigate to the folder to start it every time. You can edit your shell configuration and make an alias for that so you can type "fluxion" and run it from everywhere. I really like to create aliases because it simplifies my work. 😎
 !!!
+
+---
 
 ## How to add an alias?
 

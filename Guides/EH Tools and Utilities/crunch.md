@@ -1,5 +1,6 @@
 # Crunch - wordlist generator
 
+---
 
 ## What is Crunch?
 
@@ -11,11 +12,15 @@ In this short post I will present the tool "crunch". What this tool does is gene
 Please remember, never use those tools for malicious purposes, especially without having permission to do so.
 !!!
 
+---
+
 ## How to get the tool?
 
 You can check the tool here : [!button size="s" corners="pill" variant="contrast" text="crunch"](https://www.kali.org/tools/crunch/) 
 
 However if you have a Kali Linux already, don't worry as it comes pre-installed. 
+
+---
 
 ## How to use crunch?
 
@@ -49,7 +54,8 @@ We can try it out like that for example :
 <img src="/static/crunch4.png" style="border-radius: 10px"/>
 120 strings generated with this information
 
-<br></br>
+---
+
 And that's not all, that's only us touching the surface of crunch with this small example. This tool is way more powerful and it has many more options. The point here is that you should avoid using stuff that make sense for your password as it could potentially lead to you being a victim of a targeted attack.
 
 !!!

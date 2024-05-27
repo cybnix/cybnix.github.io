@@ -1,4 +1,5 @@
 # Cracking WPA/WPA2
+---
 
 ## Introduction
 
@@ -11,6 +12,8 @@ While there are many resources available on this topic, I wanted to present it i
 !!!warning 
 Please remember, never perform these actions on networks you do not own or have explicit permission to test.
 !!!
+
+---
 
 ## We need to put our wireless interface in monitor mode first
 
