@@ -1,8 +1,10 @@
-# 3. Crocodile
+# 3. Crocodile (Tier 1)
 
 <img src="/static/htb/crocodile/croc.png" style="border-radius: 10px; width: 40%;"/>
 
 In this post our target is Crocodile. Seems to be a very easy machine so let's get going!
+
+---
 
 ## Booting up and doing the tasks
 
@@ -72,6 +74,8 @@ Submit root flag
 <img src="/static/htb/crocodile/croc9.png" style="border-radius: 10px; width: 50%;"/>
 <img src="/static/htb/crocodile/croc10.png" style="border-radius: 10px; width: 70%;"/>
 !!!
+
+---
 
 ## Summary
 Although this machine was easy, I've managed to learn about the -x flag used in gobuster. The machine was pwned and we have obtained the root flag.

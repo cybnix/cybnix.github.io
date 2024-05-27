@@ -1,8 +1,10 @@
-# 2. Meow
+# 2. Meow (Tier 0)
 
 <img src="/static/htb/meow/meow.png" style="border-radius: 10px; width: 40%;"/>
 
 In this post I will be attacking Meow in HTB. It is considered to be a very easy machine so let's see how it goes!
+
+---
 
 ## Booting up and doing the tasks
 
@@ -57,6 +59,8 @@ Submit root flag
 > **b40abdfe23665f766f9c61ecba8a4c19** (We can see the flag when we ls and cat the file)
 <img src="/static/htb/meow/meow6.png" style="border-radius: 10px; width: 50%;"/>
 !!!
+
+---
 
 ## Summary
 Quite an easy machine, I think this is perfect for a beginner.

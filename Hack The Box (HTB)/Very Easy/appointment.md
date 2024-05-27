@@ -1,8 +1,10 @@
-# 4. Appointment
+# 4. Appointment (Tier 1)
 
 <img src="/static/htb/appointment/appointment.png" style="border-radius: 10px; width: 40%;"/>
 
 In this post our target is Appointment. From the description it seems that this is a DB related one.
+
+---
 
 ## Booting up and doing the tasks
 
@@ -71,10 +73,13 @@ Now it is very important that we use **admin'#** instead of **admin#** as user f
 !!!
 
 !!!success SUBMIT FLAG
+
 Submit root flag 
 > **e3d0796d002a446c0e622226f42e9672** (we got it after logging in)
 <img src="/static/htb/appointment/appointment7.png" style="border-radius: 10px; width: 60%;"/>
 !!!
+
+---
 
 ## Summary
 All tasks were pretty easy. However it took me some time to realise what is happening on step 10. Overall I think it is a nice machine for a beginner.

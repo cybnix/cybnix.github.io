@@ -1,8 +1,10 @@
-# 1. Fawn
+# 1. Fawn (Tier 0)
 
 <img src="/static/htb/fawn/fawn.png" style="border-radius: 10px; width: 50%;"/>
 
 In this post I will be attacking a machine in HTB which is named Fawn. It is considered to be a very easy machine so I plan on starting with the simple ones first and gradually increasing the difficulty with my other posts. I will go through each task related to the machine and I will document it here.
+
+---
 
 ## Booting up and doing the tasks
 
@@ -86,6 +88,8 @@ Submit root flag
 > **035db21c881520061c53e0536e44f815** (We can see the flag in the file that we have managed to download from the ftp.)
 <img src="/static/htb/fawn/fawn9.png" style="border-radius: 10px; width: 50%;"/>
 !!!
+
+---
 
 ## Summary
 After we have completed all tasks and we have gained the root flag, we have successfully pwned the machine. This seemed to be quite the easy one but as it was the first machine we have tested, it is kind of expected. I think this is a good exercise for beginners as some simple commands can be learned. Stay tuned for more!
