@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.770137385261">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.770233106827">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Fluxion - MITM WPA/WPA2 attack (WIP)</title>
-    <meta name="title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
+    <title>MITM WPA/WPA2 attack - Fluxion</title>
+    <meta name="title" content="MITM WPA/WPA2 attack - Fluxion">
+    <meta name="description" content="In this post I will be simulating an attack with Fluxion on my own test network at home.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
@@ -18,20 +19,22 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
-    <meta property="og:title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
+    <meta property="og:title" content="MITM WPA/WPA2 attack - Fluxion">
+    <meta property="og:description" content="In this post I will be simulating an attack with Fluxion on my own test network at home.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://cybnix.github.io/simulated-attacks/network-and-wireless-attacks/fluxion/">
-    <meta property="twitter:title" content="Fluxion - MITM WPA/WPA2 attack (WIP)">
+    <meta property="twitter:title" content="MITM WPA/WPA2 attack - Fluxion">
+    <meta property="twitter:description" content="In this post I will be simulating an attack with Fluxion on my own test network at home.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.770137385261" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.770233106827" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.770137385261" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.770233106827" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.770137385261" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.770233106827" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -174,13 +177,160 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="fluxion---mitm-wpawpa2-attack-wip" class="break-words">
+<doc-anchor-target id="mitm-wpawpa2-attack---fluxion" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#fluxion---mitm-wpawpa2-attack-wip">#</doc-anchor-trigger>
-        <span>Fluxion - MITM WPA/WPA2 attack (WIP)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mitm-wpawpa2-attack---fluxion">#</doc-anchor-trigger>
+        <span>MITM WPA/WPA2 attack - Fluxion</span>
     </h1>
 </doc-anchor-target>
-<img src="/static/workpeon.jpg" style="border-radius: 10px; width: 50%;"  />
+<hr>
+<doc-anchor-target id="introduction">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
+        <span>Introduction</span>
+    </h2>
+</doc-anchor-target>
+<img src="/static/parrot.jpg" style="border-radius: 30px; width: 100%;"/>
+<br><br>
+<p>In this post I will be simulating an attack with Fluxion on my own test network at home. The goal is to present how we can simulate a rogue access point, tricking unsuspecting users into revelaling their WiFi credentials to us. If a hacker cannot crack your handshake, he can use tools like fluxion that are using social engineering to steal a password. I will be using my laptop which I have used in <a href="/simulated-attacks/network-and-wireless-attacks/crackingwpa">Cracking WPA/WPA2</a>. If you want more information on adapters you can check that post as I have shared some details there.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>Please remember, never perform these actions on networks you do not own or have explicit permission to test.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<doc-anchor-target id="we-need-to-start-our-fluxion-first">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#we-need-to-start-our-fluxion-first">#</doc-anchor-trigger>
+        <span>We need to start our fluxion first</span>
+    </h2>
+</doc-anchor-target>
+<p>If you want to find out how to configure your fluxion I recommend checking my guide for that - <a href="/guides/eh-tools-and-utilities/fluxion_install">Fluxion Setup</a></p>
+<p>When we first start our fluxion we are first presented with a language option to select :
+<img src="/static/fluxion/fluxion4.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>After we select the language, we need to select another option. We have 2 of them, one is to create a Captive Portal or an &quot;evil twin&quot; where the victim will connect and the other one is a Handshake Snooper. So in order to create an evil twin, we need to first use the Handshake Snooper as we need the handshake because it will be used later for password verification (don&#x27;t worry everything is semi-automated here so it&#x27;s quite easy to do).</p>
+<img src="/static/fluxion/fluxion5.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<hr>
+<doc-anchor-target id="capturing-the-handshake">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#capturing-the-handshake">#</doc-anchor-trigger>
+        <span>Capturing the handshake</span>
+    </h2>
+</doc-anchor-target>
+<p>We need to select a channel now, I will go with All channels (2.4GHz). In our case I know that my TestNetwork is 2.4GHz (7 channel) as I have configured it that way. There is a device already connected to it so it should be quite easy to get the handshake.</p>
+<img src="/static/fluxion/fluxion6.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>A scan will pop up so after we see our targeted network populated, we will stop the scan and select the network - in our case <strong>TestNetwork</strong>.</p>
+<img src="/static/fluxion/fluxion7.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Now we need to select the interface which will be using. In my case I have only 1 which is my internal adapter.</p>
+<img src="/static/fluxion/fluxion8.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Now as I did in <a href="/simulated-attacks/network-and-wireless-attacks/crackingwpa">Cracking WPA/WPA2</a>, I will deauthenticate the devices on this network to speed up the process so I will go with the third option. I am going with it as I have had more success with the mdk4 method of deauthentication.</p>
+<img src="/static/fluxion/fluxion9.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Now we need to select a method of verification for the hash. Fluxion seems to be recommending cowpatty so let&#x27;s try that.
+<img src="/static/fluxion/fluxion10.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Will go with every 30 seconds, want to speed it up a bit.
+<img src="/static/fluxion/fluxion11.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Now we will go with Asynchronous verification. What does that mean? The difference between the two is that during the Asynchronous verification, multiple verifications processes run in parallel, which can make the attack faster. In synchronous however, processes run one after the other in a sequence, which would be slower.
+<img src="/static/fluxion/fluxion12.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>A few windows will pop up showing you the processess that are happening and one of them being the deauth packets being sent. So what happened is that my phone which was connected to the network got disconnected and upon trying to connect back again automatically, the handshake was captured.</p>
+<img src="/static/fluxion/fluxion13.png" style="border-radius: 10px; width: 80%;"/>
+<img src="/static/fluxion/fluxion13-1.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<hr>
+<doc-anchor-target id="creating-an-evil-twin-with-the-captured-handshake">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-an-evil-twin-with-the-captured-handshake">#</doc-anchor-trigger>
+        <span>Creating an evil twin with the captured handshake</span>
+    </h2>
+</doc-anchor-target>
+<p>Now as we have it saved to the fluxion&#x27;s database, we can go back and do another attack, which is the Captive Portal.
+<img src="/static/fluxion/fluxion14.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Again, we have to do the scan and select our test network.
+<img src="/static/fluxion/fluxion15.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Once again, we will select our adapter as it will be needed to create that &quot;evil&quot; access point.
+<img src="/static/fluxion/fluxion16.png" style="border-radius: 10px; width: 80%;"/>
+<img src="/static/fluxion/fluxion17.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>Then we have to select our method of authentication, which will be used to deauthenticate the devices on the network while spawning the evil access point. We will go with mdk4 again.</p>
+<img src="/static/fluxion/fluxion18.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Next step is to pick a tool for the AP. We will go with hostapd as I&#x27;ve read it is more stable and can handle multiple connections. (I&#x27;ve tested it with 2 phones and it really did handle them)</p>
+<img src="/static/fluxion/fluxion19.png" style="border-radius: 10px; width: 80%;"/>
+<p>As in one of the previous steps, we will go again with cowpatty that will be our password verification method, which will basically compare the user key to the handshake. So here comes the question what happens if the user types a wrong password on the fake AP? Well the tool will compare the password to the handshake which we have captured earlier so if the password is not correct, the user will continue to be prompted. In case the password is correct, the AP will shutdown and everything will go back to normal so the user won&#x27;t find out that he was basically tricked.</p>
+<img src="/static/fluxion/fluxion20.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Now we will use the hash that we have captured earlier for the evil twin AP. [1]</p>
+<img src="/static/fluxion/fluxion21.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>As in the previous step we will use the hash verification to be cowpatty (will stick to it as it is recommended).</p>
+<img src="/static/fluxion/fluxion22.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Next step is to generate a captive portal. Basically this portal will look very real and once the user connects to the fake AP, he will be presented a portal which will bait him to type in the network password. We will create an SSL certificate so it looks more legit.</p>
+<img src="/static/fluxion/fluxion23.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>At this step we will use the &quot;disconnected&quot; which won&#x27;t provide access to the internet to our victim once he connects to our fake AP.
+<img src="/static/fluxion/fluxion24.png" style="border-radius: 10px; width: 80%;"/></p>
+<p>This part is really, really cool. We can select from a ton of interfaces for a bait. I will go with a Generic one in Bulgarian language for this test. There are 79 different portal versions currently.</p>
+<img src="/static/fluxion/fluxion25.png" style="border-radius: 10px; width: 80%;"/>
+<br><br>
+<p>Now what we see are a bunch of windows doing different things. There is a DNS server, redirecting all request to the attacker&#x27;s host portal. A web server that is serving the portal to the victim. Also we got a jammer (the red one) that will continue sending deauth requests to drop all clients from the original AP. So what will happen now is tht all authentication attempts at the fake portal will be checked against the handshake we got earlier. Once everything is ready, all services will be terminated nd we will get the key.</p>
+<img src="/static/fluxion/fluxion26.png" style="border-radius: 10px; width: 100%;"/>
+<br><br>
+<p>Now we wait.</p>
+<hr>
+<doc-anchor-target id="what-happens-next-when-the-victim-connects">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#what-happens-next-when-the-victim-connects">#</doc-anchor-trigger>
+        <span>What happens next when the victim connects?</span>
+    </h2>
+</doc-anchor-target>
+<p>From the perspective of our victim, we can see the following - 2 networks with the same name, the first one is unlocked (evil twin one) and the victim is not able to connect to the second one (the real network) as it is being deauthenticated constantly:</p>
+<img src="/static/fluxion/phone1.png" style="border-radius: 10px; width: 30%;"/>
+<br><br>
+<p>The victim will be redirected into the browser to our fake portal page. So basically this message tells the victim that for security reasons, it is needed to enter the password to gain access to the internet.</p>
+<img src="/static/fluxion/phone2.png" style="border-radius: 10px; width: 30%;"/>
+<br><br>
+<p>Now as the victim enters the password a message appears that the connection will be recovered in a few seconds.</p>
+<img src="/static/fluxion/phone3.png" style="border-radius: 10px; width: 30%;"/>
+<hr>
+<doc-anchor-target id="getting-the-password-on-our-end">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-the-password-on-our-end">#</doc-anchor-trigger>
+        <span>Getting the password on our end</span>
+    </h2>
+</doc-anchor-target>
+<p>So when the victim connected to our rogue AP first, we have noticed that in some of the terminal windows that have appeared. It looks like that the victim is being redirected to the portal and we can see it on the DNS Service and Web Service windows.
+<img src="/static/fluxion/fluxion29.png" style="border-radius: 10px; width: 60%;"/></p>
+<p>Once the victim entered the password in the fake portal, a window appeared that told us where the password got saved.
+<img src="/static/fluxion/fluxion30.png" style="border-radius: 10px; width: 70%;"/></p>
+<p>And there we have it.</p>
+<img src="/static/fluxion/fluxion31.png" style="border-radius: 10px; width: 70%;"/>
+<hr>
+<doc-anchor-target id="conclusion">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#conclusion">#</doc-anchor-trigger>
+        <span>Conclusion</span>
+    </h2>
+</doc-anchor-target>
+<p>The goal of this simulation was to present how vulnerable we can be to targeted attacks. By creating a rogue access point, attackers can trick people into reveling their WiFi passwords, which will grant them unauthorized access to the network. It&#x27;s very important for us to understend how those methods work so we can recognize such an attack.</p>
+<p>Always enable WP3 encryption if supported. It offers stronger security features that can protect against many common attacks.</p>
+<p>Regularly update all of your devices including the firmware of your router. For example I have tried to connect to this network from one phone which has the latest updates and it didn&#x27;t work. However I have tested 2 other phones which have not been updated in a while and guess what? Both of them were able to connect to the evil twin network.</p>
+<p>Believe me, such an attack can easily work in real life, especially if the victims are people who are not aware of these types of security threats.</p>
+<p>Stay informed, stay secure and be sure to inform the people around you. <span class="docs-emoji">&#x1F60E;</span></p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -240,6 +390,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Fluxion - MITM WPA/WPA2 attack (WIP)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "MITM WPA/WPA2 attack - Fluxion", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
