@@ -1,6 +1,6 @@
 # Fluxion Setup
 
-<img src="/static/fluxion.jpg" style="border-radius: 10px; width: 70%;"/>
+<img src="/static/fluxion.jpg" style="border-radius: 10px; width: 60%;"/>
 
 ---
 
@@ -58,4 +58,4 @@ You can adjust the path based on the location of fluxion in your case.
 <img src="/static/fluxion/alias.png" style="border-radius: 10px; width: 80%;"/>
 
 <br><br>
-3. Save it. Now you can run "fluxion" from anywhere in your environment 👍
+3. Save it. Now you can just type "fluxion" from anywhere in your environment 👍

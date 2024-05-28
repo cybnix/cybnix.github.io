@@ -4,7 +4,7 @@
 ## Introduction
 
 <img src="/static/bird1.jpg" style="border-radius: 10px;"/>
-
+<br><br>
 In this post, I will explore how to conduct a simulated WiFi attack on a test network to understand how credentials can be stolen and used to gain unauthorized access. The goal is to learn about the dangers of such attacks and how they can affect us. I will be using my Kali Linux laptop which I have for testing purposes, however the tools I am using are available for other operating systems as well. They come preinstalled in Kali which is why I prefer using it.
 
 While there are many resources available on this topic, I wanted to present it in my own way for better clarity and understanding, and to have it as a future reference for myself as well 😇.

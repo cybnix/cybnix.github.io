@@ -9,7 +9,7 @@
 In this short post I will present the tool "crunch". What this tool does is generating a dictionary file based on your input. Yes, there are probably thousands of wordlists online but you can craft your own wordlist specifically tailored for your needs. In the [Cracking WPA/WPA2](/Simulated-Attacks/Network-and-Wireless-Attacks/crackingwpa) post, we have used one wordlist that came with Kali but in other cases we might need something more specific. This is where tools like Crunch come in handy.
 
 !!!warning 
-Please remember, never use those tools for malicious purposes, especially without having permission to do so.
+Please remember, never use those tools for malicious purposes or without permission to do so.
 !!!
 
 ---

@@ -2,7 +2,7 @@
 
 <img src="/static/welcome.jpg" style="border-radius: 10px;"/>
 <br/><br/> 
-Hello👋! I'm a tech enthusiast with a master's degree in information security. I have some diverse work experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions, I'm now venturing into the world of cybersecurity. So far I have mostly pursued security as a hobby but I possess a very strong interest in transitioning into the field professionally. 👀
+Hey There👋! I'm a tech enthusiast with a master's degree in information security. I have some diverse work experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions. Beyond my professional experience, I am passionate about ethical hacking and cybersecurity as a hobby and I hold a few certifications in the field.
 
 ---
 
