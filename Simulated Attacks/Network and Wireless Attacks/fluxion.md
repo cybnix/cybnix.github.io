@@ -157,7 +157,7 @@ And there we have it.
 
 ## Conclusion
 
-The goal of this simulation was to present how vulnerable we can be to targeted attacks. By creating a rogue access point, attackers can trick people into reveling their WiFi passwords, which will grant them unauthorized access to the network. It's very important for us to understend how those methods work so we can recognize such an attack.
+The goal of this simulation was to present how vulnerable we can be to targeted attacks. By creating a rogue access point, attackers can trick people into revealing their WiFi passwords, which will grant them unauthorized access to the network. It's very important for us to understand how those methods work so we can recognize such an attack.
 
 Always enable WP3 encryption if supported. It offers stronger security features that can protect against many common attacks.
 
