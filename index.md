@@ -1,8 +1,8 @@
-# Welcome to my Blog!
+# Welcome!
 
 <img src="/static/welcome.jpg" style="border-radius: 10px;"/>
 <br/><br/> 
-Hey There👋! I'm a tech enthusiast with a master's degree in information security. I have some diverse work experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions. Beyond my professional experience, I am passionate about ethical hacking and cybersecurity as a hobby and I hold a few certifications in the field.
+Hey there and welcome to my blog 👋! I'm a tech enthusiast with a master's degree in information security. I have some diverse work experience in cloud engineering, backup/storage engineering, system administration, and supporting ArcSight SIEM solutions. Beyond my professional experience, I am passionate about ethical hacking and cybersecurity as a hobby and I hold a few certifications in the field.
 
 ---
 

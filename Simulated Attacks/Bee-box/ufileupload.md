@@ -1,6 +1,6 @@
 # Unrestricted File Upload (medium security level)
 
-[How to configure Bee box for your own use](/Guides/EH-Tools-and-Utilities/bwapp)
+[How to configure bWAPP with Bee box for your own use](/Guides/EH-Tools-and-Utilities/bwapp)
 
 ## Getting started
 
