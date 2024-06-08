@@ -52,4 +52,24 @@ It is still very dangerous, as in the case of a POST-based XSS vulnerability, th
 
 ## Cross-Site Scripting - Stored (Blog)
 
-WIP
+In general the Stored XSS is considered to be more dangerous because it has a higher potential impact, for example it can affect more users. The script gets stored in the database and once the user visits the page, the script gets executed. This is why it is called stored, because if not detected it can persist over time. Again, very senstive data like cookies and personal information can be exposed. We will use the previous example to see how it works.
+
+<img src="/static/xss/xss5.png" style="border-radius: 10px; width: 80%;"  />
+
+Here we have a field where we can write down stuff which then are being stored on the page. Now everybody can see the comments that I have added. But what if I add a malicious javascript code?
+
+Let's use the one that exposes our cookies:
+```javascript
+<script>alert(document.cookie);</script>
+```
+Now on every visit this JavaScript code will be executed for everybody that can see the page. 
+
+<img src="/static/xss/xss6.png" style="border-radius: 10px; width: 80%;"  />
+<br><br>
+And as you can see it is not even visible :
+
+<img src="/static/xss/xss7.png" style="border-radius: 10px; width: 80%;"  />
+
+---
+
+There are more examples of XSS in bWAPP so I will add more of them at a later stage in this post.
