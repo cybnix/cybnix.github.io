@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771157918128">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771164281296">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,12 +30,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.771157918128" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.771164281296" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.771157918128" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.771164281296" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.771157918128" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.771157918128" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.771164281296" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.771164281296" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -232,7 +232,20 @@
         <span>Cross-Site Scripting - Stored (Blog)</span>
     </h2>
 </doc-anchor-target>
-<p>WIP</p>
+<p>In general the Stored XSS is considered to be more dangerous because it has a higher potential impact, for example it can affect more users. The script gets stored in the database and once the user visits the page, the script gets executed. This is why it is called stored, because if not detected it can persist over time. Again, very senstive data like cookies and personal information can be exposed. We will use the previous example to see how it works.</p>
+<img src="/static/xss/xss5.png" style="border-radius: 10px; width: 80%;"  />
+<p>Here we have a field where we can write down stuff which then are being stored on the page. Now everybody can see the comments that I have added. But what if I add a malicious javascript code?</p>
+<p>Let&#x27;s use the one that exposes our cookies:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">&lt;script&gt;alert(document.cookie);&lt;/script&gt;</code></pre>
+</doc-codeblock></div>
+<p>Now on every visit this JavaScript code will be executed for everybody that can see the page.</p>
+<img src="/static/xss/xss6.png" style="border-radius: 10px; width: 80%;"  />
+<br><br>
+And as you can see it is not even visible :
+<img src="/static/xss/xss7.png" style="border-radius: 10px; width: 80%;"  />
+<hr>
+<p>There are more examples of XSS in bWAPP so I will add more of them at a later stage in this post.</p>
 
                                 
                                 <!-- Required only on API pages -->
