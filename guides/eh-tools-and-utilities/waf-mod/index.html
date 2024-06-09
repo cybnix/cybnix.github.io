@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Unrestricted File Upload (medium security level)</title>
-    <meta name="title" content="Unrestricted File Upload (medium security level)">
-    <meta name="description" content="How to configure bWAPP with Bee box for your own use">
+    <title>Web Application Firewall (WAF) installation - ModSecurity</title>
+    <meta name="title" content="Web Application Firewall (WAF) installation - ModSecurity">
+    <meta name="description" content="In this post I will show you how to install and configure ModSecurity.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://cybnix.github.io/simulated-attacks/bee-box/ufileupload/">
+    <link rel="canonical" href="https://cybnix.github.io/guides/eh-tools-and-utilities/waf-mod/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cybnix.github.io/simulated-attacks/bee-box/ufileupload/">
-    <meta property="og:title" content="Unrestricted File Upload (medium security level)">
-    <meta property="og:description" content="How to configure bWAPP with Bee box for your own use">
+    <meta property="og:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/waf-mod/">
+    <meta property="og:title" content="Web Application Firewall (WAF) installation - ModSecurity">
+    <meta property="og:description" content="In this post I will show you how to install and configure ModSecurity.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cybnix.github.io/simulated-attacks/bee-box/ufileupload/">
-    <meta property="twitter:title" content="Unrestricted File Upload (medium security level)">
-    <meta property="twitter:description" content="How to configure bWAPP with Bee box for your own use">
+    <meta property="twitter:url" content="https://cybnix.github.io/guides/eh-tools-and-utilities/waf-mod/">
+    <meta property="twitter:title" content="Web Application Firewall (WAF) installation - ModSecurity">
+    <meta property="twitter:description" content="In this post I will show you how to install and configure ModSecurity.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,6 +35,7 @@
     <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.771292777839" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.771292777839" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.771292777839" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -177,78 +178,182 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="unrestricted-file-upload-medium-security-level" class="break-words">
+<doc-anchor-target id="web-application-firewall-waf-installation---modsecurity" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#unrestricted-file-upload-medium-security-level">#</doc-anchor-trigger>
-        <span>Unrestricted File Upload (medium security level)</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#web-application-firewall-waf-installation---modsecurity">#</doc-anchor-trigger>
+        <span>Web Application Firewall (WAF) installation - ModSecurity</span>
     </h1>
 </doc-anchor-target>
-<p><a href="/guides/eh-tools-and-utilities/bwapp">How to configure bWAPP with Bee box for your own use</a></p>
-<doc-anchor-target id="getting-started">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-started">#</doc-anchor-trigger>
-        <span>Getting started</span>
-    </h2>
-</doc-anchor-target>
-<p>In this post I will present a way to exploit the unrestricted file upload vulnerability in bWAPP(bee box). I will be using medium security level so I can show you how you can bypass it. If the security is low, basically there are no blocked extensions so you can directly upload a webshell. In our case there are restrictions. You can see on the below screenshot that we are unable to upload our <strong>php-backdoor.php</strong> file.</p>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload1.png" style="border-radius: 10px; width: 80%;"  />
-<p>Of course! Why would they allow you to upload a php file in a place where images are required, right?</p>
-<p>Well there are some extensions blocked, but not all of them are <span class="docs-emoji">&#x1F60F;</span>.</p>
+<img src="/static/mod/mod1.jpg" style="border-radius: 10px; width: 90%;"  />
 <hr>
-<doc-anchor-target id="step-1---uploading-an-allowed-file">
+<doc-anchor-target id="what-is-modsecurity-">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-1---uploading-an-allowed-file">#</doc-anchor-trigger>
-        <span>Step 1 - Uploading an allowed file</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#what-is-modsecurity-">#</doc-anchor-trigger>
+        <span>What is ModSecurity ?</span>
     </h2>
 </doc-anchor-target>
-<p>I will upload a .png file. However the trick here is, that I will intercept the request with Burp and this is where the magic will happen.</p>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload2.png" style="border-radius: 10px; width: 60%;"  />
+<p>In this post I will show you how to install and configure ModSecurity. So what is ModSecurity? ModSecurity is an open-source web application firewall (WAF) that provides protection for web applications by detecting and preventing various types of attacks. ModSecurity uses a rule set to detect and mitigate attacks. The OWASP Core Rule Set (CRS) is one of the most commonly used rule sets, offering protection against a wide range of threats, including SQL injection, cross-site scripting (XSS), and other common vulnerabilities.</p>
+<hr>
+<doc-anchor-target id="installation-and-configuration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installation-and-configuration">#</doc-anchor-trigger>
+        <span>Installation and Configuration</span>
+    </h2>
+</doc-anchor-target>
+<p>For this post I have prepared a separate VM running Ubuntu and I have installed bWAPP on it. I have configured the server using Apache. As you can see I have tested a simple XSS attack:</p>
+<img src="/static/mod/mod2.png" style="border-radius: 10px; width: 70%;"  />
 <br><br>
 <hr>
-<doc-anchor-target id="step-2---intercepting-the-request-with-burp">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2---intercepting-the-request-with-burp">#</doc-anchor-trigger>
-        <span>Step 2 - Intercepting the request with Burp</span>
-    </h2>
+<doc-anchor-target id="installing-the-modsecurity-module">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installing-the-modsecurity-module">#</doc-anchor-trigger>
+        <span>Installing the ModSecurity module</span>
+    </h3>
 </doc-anchor-target>
-<p>Before I press Upload, my Burp proxy will be running as well as my Burp.</p>
-<p>So here is my request before and after being edited.
-<br><br>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload3.png" style="border-radius: 10px; width: 60%;"  />
-<br><br>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload4.png" style="border-radius: 10px; width: 80%;"  /></p>
-<p>What did I change?</p>
-<p>Well as you can see we have changed the extension of the file first. We have added .phtml in the end of the file. This extension typically will indicate a file containing PHP code but embedded within HTML. Some web servers may recongize that as a PHP file and process it, just as in our case.</p>
-<p>The next thing I did was putting the PHP code along with the image data. This code is a very simple command injection payload. It would allow us to execute system commands.</p>
-<p>Now when we forward the request, the server will accept it as there is no .php extension at the end of the file.
-<img src="/static/bwapp/unrestricted_file_upload_m/upload5.png" style="border-radius: 10px; width: 80%;"  /></p>
+<img src="/static/mod/mod3.png" style="border-radius: 10px; width: 70%;"  />
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo apt install libapache2-mod-security2</code></pre>
+</doc-codeblock></div>
+<p>Pretty straight forward, just use the command above, it will take only a few seconds.</p>
 <hr>
-<doc-anchor-target id="step-3---navigating-to-our-malicious-file-and-executing-commands">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#step-3---navigating-to-our-malicious-file-and-executing-commands">#</doc-anchor-trigger>
-        <span>Step 3 - Navigating to our malicious file and executing commands</span>
-    </h2>
+<doc-anchor-target id="configuring-the-modsecurity-module">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#configuring-the-modsecurity-module">#</doc-anchor-trigger>
+        <span>Configuring the ModSecurity module</span>
+    </h3>
 </doc-anchor-target>
-<p>Now when we click on the file, we are led to this page showing us an error that it cannot execute a blank command.
-<img src="/static/bwapp/unrestricted_file_upload_m/upload6.png" style="border-radius: 10px; width: 80%;"  /></p>
-<p>Well, we can just append <strong>?cmd=</strong> at the end of our url and write our system command. By adding this to the URL, this would allows us to pass a command to our web shell which we have embedded in the uploaded file, which then will be executed on the server.
+<p>Now it comes the configuration part. It is not that long as we will keep everything with a default configuration.</p>
+<doc-anchor-target id="copy-and-edit-the-config">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#copy-and-edit-the-config">#</doc-anchor-trigger>
+        <span>Copy and edit the config</span>
+    </h4>
+</doc-anchor-target>
+<p>We need to go to the ModSecurity directory first and then we must copy the <strong>modsecurity.conf-recommended</strong> to <strong>modsecurity.conf</strong>
+<img src="/static/mod/mod4.png" style="border-radius: 10px; width: 70%;"  /></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">cd /etc/modsecurity/</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo cp modsecurity.conf-recommended modsecurity.conf</code></pre>
+</doc-codeblock></div>
+<p>Now we can use nano or any editor so we can edit <strong>modsecurity.conf</strong>.</p>
+<img src="/static/mod/mod5.png" style="border-radius: 10px; width: 70%;"  />
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo nano modsecurity.conf</code></pre>
+</doc-codeblock></div>
+<p>We can see that currently it is working in detection only mode : <strong>SecRuleEngine DetectionOnly</strong></p>
+<p>We should comment it out and add the following : <strong>SecRuleEngine On</strong> . Now we will be stopping requests containing SQL Injections or JavaScript.</p>
+<img src="/static/mod/mod6.png" style="border-radius: 10px; width: 70%;"  />
+<p><br><br></p>
+<doc-anchor-target id="backup-the-default-crs-core-rule-set-and-get-the-owasp-one">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#backup-the-default-crs-core-rule-set-and-get-the-owasp-one">#</doc-anchor-trigger>
+        <span>Backup the default CRS (Core Rule Set) and get the OWASP one</span>
+    </h4>
+</doc-anchor-target>
+<p>When we go to <strong>/usr/share</strong> we can see the directory named <strong>modsecurity-crs</strong>. We will back this up and download the OWASP CRS.
+<img src="/static/mod/mod7.png" style="border-radius: 10px; width: 70%;"  /></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">cd /usr/share/</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">ls -la | grep modsec</code></pre>
+</doc-codeblock></div>
+<p>The OWASP CRS is a set of generic attack detection rules for use with ModSecurity or compatible web application firewalls. The CRS aims to protect web applications from a wide range of attacks, including the OWASP Top Ten, with a minimum of false alerts.</p>
+<img src="/static/mod/mod8.png" style="border-radius: 10px; width: 70%;"  />
 <br><br>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload7.png" style="border-radius: 10px; width: 80%;"  /></p>
-<p>Here&#x27;s another command that allows us to list the files in the current directory. We can even see some .php shells that I have uploaded previously while I was playing around. They could pass as the security was put to low.</p>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload8.png" style="border-radius: 10px; width: 80%;"  />
-<br><br>
-<p>And a &quot;pwd&quot; one so we can see the current working directory.</p>
-<img src="/static/bwapp/unrestricted_file_upload_m/upload9.png" style="border-radius: 10px; width: 80%;"  />
-<br><br>
+So let's backup the original folder before downloading the OWASP CRS:
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo mv modsecurity-crs/ modsecurity-crs.backup</code></pre>
+</doc-codeblock></div>
+<img src="/static/mod/mod9.png" style="border-radius: 10px; width: 70%;"  />
+<p><br><br></p>
+<doc-anchor-target id="download-the-owasp-crs-and-configure-it">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#download-the-owasp-crs-and-configure-it">#</doc-anchor-trigger>
+        <span>Download the OWASP CRS and configure it</span>
+    </h4>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo git clone https://github.com/coreruleset/coreruleset.git modsecurity-crs</code></pre>
+</doc-codeblock></div>
+<p>Now while we are in the <strong>/usr/share</strong> directory, we should download the CRS to a folder named <strong>modsecurity-crs</strong> (this is why we have backed up the original one)</p>
+<img src="/static/mod/mod10.png" style="border-radius: 10px; width: 70%;"  />
+<p>Once downloaded we should copy the config example which is located inside the folder:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo cp crs-setup.conf.example crs-setup.conf</code></pre>
+</doc-codeblock></div>
+<p>For now we don&#x27;t have to touch the file. We can use it with default configuration.</p>
+<p>Now we should go to:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">cd /etc/apache2/mods-enabled/</code></pre>
+</doc-codeblock></div>
+<p>The next step is to edit the <strong>security2.conf</strong> file.
+<img src="/static/mod/mod11.png" style="border-radius: 10px; width: 70%;"  /></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo nano security2.conf</code></pre>
+</doc-codeblock></div>
+<img src="/static/mod/mod12.png" style="border-radius: 10px; width: 70%;"  />
+<p>Now once we open the config file, we should add 2 lines below
+<strong>IncludeOptional /usr/share/modsecurity-crs/*.load</strong></p>
+<p>Basically it should look like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">security2.conf</div>
+<pre class="language-none"><code v-pre class="language-none">&lt;IfModule security2_module&gt;
+        # Default Debian dir for modsecurity's persistent data
+        SecDataDir /var/cache/modsecurity
+
+        # Include all the *.conf files in /etc/modsecurity.
+        # Keeping your local configuration in that directory
+        # will allow for an easy upgrade of THIS file and
+        # make your life easier
+        IncludeOptional /etc/modsecurity/*.conf
+
+        # Include OWASP ModSecurity CRS rules if installed
+        IncludeOptional /usr/share/modsecurity-crs/*.load
+        IncludeOptional /usr/share/modsecurity-crs/*.conf
+        IncludeOptional /usr/share/modsecurity-crs/rules/*.conf
+
+&lt;/IfModule&gt;
+</code></pre>
+</doc-codeblock></div>
+<p>Once you have edited the file, you can save it. Sometimes there could be rules that are not working well, we can remove any of them that are not working correctly. They should be located inside of <strong>/usr/share/modsecurity-crs/rules/NAMEOFRULE.conf</strong>. You can remove it if not needed and it is causing errors.</p>
+<p>Let&#x27;s restart apache next once we have changed the config:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo systemctl restart apache2</code></pre>
+</doc-codeblock></div>
 <hr>
-<doc-anchor-target id="conclusion">
+<doc-anchor-target id="lets-test-it-out">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#conclusion">#</doc-anchor-trigger>
-        <span>Conclusion</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#lets-test-it-out">#</doc-anchor-trigger>
+        <span>Let&#x27;s test it out</span>
     </h2>
 </doc-anchor-target>
-<p>In conclusion, I can say that unrestricted file upload in web applications could be very dangerous. Developers should really make sure that the files are being checked properly before upload. If such vulnerability is present, attackers can gain control over the server and potentially steal sensitive data.</p>
-<p>This was a quite enjoyable exercise to do in Bee box so I am planning on doing more in the future. Stay tuned if you are interested <span class="docs-emoji">&#x1F440;</span>.</p>
+<p>First we will open one terminal and type</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">tail -f /var/log/apache2/error.log</code></pre>
+</doc-codeblock></div>
+<p>Then let&#x27;s go back to the XSS vulnerable page and test it out:</p>
+<img src="/static/mod/mod14.png" style="border-radius: 10px; width: 70%;"  />
+<p>If we type a normal text that should be entered there, we see it works without any issues. I have typed &quot;test&quot; in both fields and it seems that it was displayed back to me.</p>
+<p>But what if we try attacking it?</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">&lt;script&gt;alert('Pls install WAF');&lt;/script&gt;</code></pre>
+</doc-codeblock></div>
+<img src="/static/mod/mod13.png" style="border-radius: 10px; width: 70%;"  />
+<img src="/static/mod/mod15.png" style="border-radius: 10px; width: 70%;"  />
+<p>Well it seems that we have been blocked from doing that immediately <span class="docs-emoji">&#x1F60E;</span>.</p>
+<p>If we go back to the terminal where we have started a tail on the error.log, we can see the follwing :</p>
+<img src="/static/mod/mod16.png" style="border-radius: 10px; width: 90%;"  />
+<hr>
+<doc-anchor-target id="summary">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#summary">#</doc-anchor-trigger>
+        <span>Summary</span>
+    </h2>
+</doc-anchor-target>
+<p>After installing the WAF and testing the attack, ModSecurity effectively identified and blocked the XSS attempt on our bWAPP server by analyzing the input parameters and detecting the malicious activity. It applied its rules from the OWASP CRS, demonstrating the WAF’s capability to enhance the security of web applications by preventing common web-based attacks like XSS. In a real-life situation, there might be false positives, which could require additional tuning based on the specific case. We should keep our OWASP CRS updated, as well as our ModSecurity installation. Ensuring proper configuration and regular updates will help maintaining the effectiveness of the WAF.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -258,20 +363,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/bee-box/sqli/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../guides/eh-tools-and-utilities/fluxion_install/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">SQL Injection</span>
+                                                <span class="block mt-1">Fluxion Setup</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../simulated-attacks/network-and-wireless-attacks/crackingwpa/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../guides/how-to/test/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Cracking WPA/WPA​2</span>
+                                                <span class="block mt-1">Coming soon (WIP)</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -315,6 +420,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Unrestricted File Upload (medium security level)", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Web Application Firewall (WAF) installation - ModSecurity", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
