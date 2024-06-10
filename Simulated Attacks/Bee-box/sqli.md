@@ -2,7 +2,7 @@
 
 [How to configure bWAPP with Bee box for your own use](/Guides/EH-Tools-and-Utilities/bwapp)
 
-In this post, I will present some SQL Injection vulnerabilities in bWAPP. SQL injection is a type of cybersecurity attack that exploits vulnerabilities in web applications by inserting malicious SQL code into input fields, allowing attackers to read or manipulate the application's database
+In this post, I will present some SQL Injection vulnerabilities in bWAPP. SQL injection is a type of cybersecurity attack that exploits vulnerabilities in web applications by inserting malicious SQL code into input fields, allowing attackers to read or manipulate the application's database.
 
 ## SQL Injection (GET/Search)
 
